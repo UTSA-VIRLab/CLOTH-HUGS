@@ -17,5 +17,9 @@ screenshots
 *.zip
 output*
 *.png
+# But allow images that live under the static/ directory (track these)
+!static/
+!static/**
+
 *.txt
 assets/snug/*
