@@ -2,26 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="title" content="TE-NeRF: Triplane-Enhanced Neural Radiance Field for Artifact-Free Human Rendering">
-  <meta name="description" content="TE-NeRF integrates SMPL-anchored Triplane features with adaptive density blending to reduce artifacts and improve geometric consistency in human NeRF rendering.">
+  <meta name="title" content="CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING">
+  <meta name="description" content="We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing.">
   <meta name="keywords" content="NeRF, Human Rendering, Triplane, SMPL, Neural Radiance Fields, HumanNeRF, Gaussian Splatting, 3D Reconstruction">
-  <meta name="author" content="Sadia Mubashshira, Kevin Desai">
+  <meta name="author" content="Sadia Mubashshira, Nazanin Amini, Kevin Desai">
 
   <meta property="og:site_name" content="UTSA VIRLab">
-  <meta property="og:title" content="TE-NeRF: Triplane-Enhanced Neural Radiance Field for Artifact-Free Human Rendering">
-  <meta property="og:description" content="Artifact-free human neural rendering using SMPL-anchored Triplane features and adaptive density blending.">
+  <meta property="og:title" content="CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING">
+  <meta property="og:description" content="We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing.">
   <meta property="og:url" content="https://utsavirlab.github.io/te-nerf">
   <meta property="og:image" content="static/images/social_preview.png">
 
-  <meta name="twitter:title" content="TE-NeRF: Artifact-Free Human Neural Rendering">
-  <meta name="twitter:description" content="Triplane-enhanced NeRF for artifact-free dynamic human rendering.">
+  <meta name="twitter:title" content="CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING">
+  <meta name="twitter:description" content="We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing.">
   <meta name="twitter:image" content="static/images/social_preview.png">
 
-  <meta name="citation_title" content="TE-NeRF: Triplane-Enhanced Neural Radiance Field for Artifact-Free Human Rendering">
+  <meta name="citation_title" content="CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING">
   <meta name="citation_author" content="Mubashshira, Sadia">
+  <meta name="citation_author" content="Amini, Nazanin">
   <meta name="citation_author" content="Desai, Kevin">
-  <meta name="citation_publication_date" content="2025">
-  <meta name="citation_conference_title" content="WACV Workshop 2025">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="ICIP 2026 (Under Review)">
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +32,8 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <!-- Page title -->
+  <title>CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -41,6 +42,13 @@
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
+  <style>
+  /* Highlighting for quantitative tables */
+  .quant-best { background: #d7f3d7 !important; }
+  .quant-second { background: #ffe6cc !important; }
+  .quant-third { background: #fff2a8 !important; }
+  .quant-ours { background: #ffd6da; }
+  </style>
   
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -72,8 +80,8 @@
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+  "headline": "CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING",
+  "description": "We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing.",
     "author": [
       {
         "@type": "Person",
@@ -100,7 +108,7 @@
     "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
     "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
     "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-  "abstract": "Rendering high-fidelity human avatars from monocular video with accurate surface details is crucial for applications in virtual reality, digital entertainment, and telepresence. While neural radiance field (NeRF) based models have shown promise in capturing human body representations, they often fail to render fine-grained details, such as cloth wrinkles and facial contours, resulting in noticeable artifacts outside the human body that undermine realism. Existing approaches lack the capability to achieve both detailed texture representation and seamless surface geometry. To address these limitations, we propose TE-NeRF, an enhanced framework that integrates Triplane features to improve detail accuracy and reduce artifacts. By associating Triplane-based features with each SMPL vertex and processing them through a density MLP, our method achieves precise representation of texture and geometry. An adaptive weight blending mechanism dynamically combines vertex-specific and ray-sampled densities, enabling a balance between detail preservation and smoothness in rendering. Additionally, a silhouette loss is introduced to reinforce alignment, particularly in complex regions like clothing edges and facial contours. Our approach reduces rendering artifacts compared to state-of-the-art methods, though with a slight trade-off in cloth detail sharpness, resulting in visually coherent human renderings validated through extensive experiments.",
+  "abstract": "We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing. Unlike prior methods that absorb clothing into a single body representation and struggle with loose garments and complex deformations, Cloth-HUGS represents the performer using separate Gaussian layers for body and cloth within a shared canonical space. The canonical volume jointly encodes body, cloth, and scene primitives and is deformed through SMPL-driven articulation with learned linear blend skinning weights. To improve cloth realism, we initialize cloth Gaussians from mesh topology and apply physics-inspired constraints, including simulation-consistency, ARAP regularization, and mask supervision. We further introduce a depth-aware multi-pass rendering strategy for robust body-cloth-scene compositing, enabling real-time rendering at over 60 FPS. Experiments on multiple benchmarks show that Cloth-HUGS improves perceptual quality and geometric fidelity over state-of-the-art baselines, reducing LPIPS by up to 28% while producing temporally coherent cloth dynamics.",
     "citation": "BIBTEX_CITATION_HERE",
     "isAccessibleForFree": true,
     "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -198,46 +206,50 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
+            <!-- Paper / project title -->
             <h1 class="title is-1 publication-title">
-            TE-NeRF: Triplane-Enhanced Neural Radiance Field for Artifact-Free Human Rendering
+            CLOTH-HUGS: CLOTH AWARE HUMAN GAUSSIAN SPLATTING
             </h1>
 
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                 <a href="https://sadia-mubashshira.github.io" target="_blank">Sadia Mubashshira</a>,
-              </span>
-             <span class="author-block">
-                <a href="https://www.utsa.edu" target="_blank">Kevin Desai</a>
-             </span>
-            </div>
+        <div class="is-size-5 publication-authors">
+          <!-- Authors -->
+          <span class="author-block">
+            <a href="https://sadia-mubashshira.github.io" target="_blank">Sadia Mubashshira</a>,
+          </span>
+         <span class="author-block">Nazanin Amini,</span>
+         <span class="author-block">
+           <a href="https://www.utsa.edu" target="_blank">Kevin Desai</a>
+         </span>
+        </div>
 
-	    <div class="is-size-5 publication-authors">
-	    	<span class="author-block">
-	    	    University of Texas at San Antonio <br>
-	      	    WACV Workshop 2025
-	     	</span>
-	    </div>
+            <div class="is-size-5 publication-authors">
+            	<span class="author-block">
+            	    University of Texas at San Antonio <br>
+          	    Under review at ICIP 2026
+          	</span>
+            </div>
 
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- TODO: Update with your arXiv paper ID -->
                       <span class="link-block">
+                        <!--
                         <a href="https://openaccess.thecvf.com/content/WACV2025W/ImageQuality/papers/Mubashshira_TE-NeRF_Triplane-Enhanced_Neural_Radiance_Field_for_Artifact-Free_Human_Rendering_WACVW_2025_paper.pdf" target="_blank" rel="noopener"
-                          class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
+                            class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                            <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span>Paper</span>
+                        </a>
+                        -->
                     </span>
 
                     <!-- Supplementary button removed -->
 
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
+                    <!--
                     <a href="https://github.com/UTSA-VIRLab/TE-NeRF" target="_blank" rel="noopener"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -245,6 +257,7 @@
                     </span>
                     <span>Code</span>
                   </a>
+                  -->
                 </span>
 
                 <!-- arXiv/archive button removed -->
@@ -279,9 +292,9 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- Paper abstract: TE-NeRF -->
+          <!-- Paper abstract: Cloth-HUGS -->
           <p>
-            Rendering high-fidelity human avatars from monocular video with accurate surface details is crucial for applications in virtual reality, digital entertainment, and telepresence. While neural radiance field (NeRF) based models have shown promise in capturing human body representations, they often fail to render fine-grained details, such as cloth wrinkles and facial contours, resulting in noticeable artifacts outside the human body that undermine realism. Existing approaches lack the capability to achieve both detailed texture representation and seamless surface geometry. To address these limitations, we propose TE-NeRF, an enhanced framework that integrates Triplane features to improve detail accuracy and reduce artifacts. By associating Triplane-based features with each SMPL vertex and processing them through a density MLP, our method achieves precise representation of texture and geometry. An adaptive weight blending mechanism dynamically combines vertex-specific and ray-sampled densities, enabling a balance between detail preservation and smoothness in rendering. Additionally, a silhouette loss is introduced to reinforce alignment, particularly in complex regions like clothing edges and facial contours. Our approach reduces rendering artifacts compared to state-of-the-art methods, though with a slight trade-off in cloth detail sharpness, resulting in visually coherent human renderings validated through extensive experiments.
+            We present Cloth-HUGS, a Gaussian Splatting based neural rendering framework for photorealistic clothed human reconstruction that explicitly disentangles body and clothing. Unlike prior methods that absorb clothing into a single body representation and struggle with loose garments and complex deformations, Cloth-HUGS represents the performer using separate Gaussian layers for body and cloth within a shared canonical space. The canonical volume jointly encodes body, cloth, and scene primitives and is deformed through SMPL-driven articulation with learned linear blend skinning weights. To improve cloth realism, we initialize cloth Gaussians from mesh topology and apply physics-inspired constraints, including simulation-consistency, ARAP regularization, and mask supervision. We further introduce a depth-aware multi-pass rendering strategy for robust body-cloth-scene compositing, enabling real-time rendering at over 60 FPS. Experiments on multiple benchmarks show that Cloth-HUGS improves perceptual quality and geometric fidelity over state-of-the-art baselines, reducing LPIPS by up to 28% while producing temporally coherent cloth dynamics.
           </p>
         </div>
       </div>
@@ -361,13 +374,13 @@
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p>
-              The framework synthesizes photorealistic renderings of dynamic humans in arbitrary poses by integrating multiple components. The input consists of an image sequence, SMPL body pose parameters (J, Ω), and camera parameters. The Pose Correction Module refines SMPL parameters to align observed and canonical spaces. The Motion Field Module decomposes motion into skeletal and non-rigid deformations, outputting the corrected position ∆(x). The Ray Regressor predicts the canonical density σr and color c for each point in the canonical space. Simultaneously, the Triplane Density MLP generates SMPL-aligned density values σt using spatially-aware Triplane features. Finally, the Adaptive Blending Module combines σr and σt using a learnable blending parameter, ensuring robust density estimation for volume rendering. The output is a photorealistic rendering of the human subject, free from artifacts and inconsistencies.
+              Given a monocular video capturing dynamic human and camera motion, Cloth-HUGS reconstructs an animatable human avatar with explicit body–cloth disentanglement and synthesizes photorealistic renderings from novel viewpoints. The SMPL-based canonical body and cloth geometries are encoded into a shared TriPlane representation. From this representation, three lightweight MLPs predict Gaussian attributes, including color (C), opacity (O), spatial shift (Δµ), rotation (R), scale (S), and Linear Blend Skinning (LBS) weights (W). The LBS weights are shared between the body and cloth Gaussians, allowing pose-conditioned deformations (Θ) to warp them to the world space. A physics-aware deformation module (SNUG) refines the cloth dynamics. Differentiable 3DGS is used for rendering the final frame using depth-aware compositing for consistent blending between the body, cloth, and scene layers.
             </p>
           </div>
           <figure class="image">
-            <img src="static/images/model-nerf.png" alt="TE-NeRF overview" loading="lazy"/>
+            <img src="static/images/Cloth_HUGS_architecture.png" alt="Cloth-HUGS overview" loading="lazy"/>
           </figure>
-          <h3 class="subtitle mt-4">TE-NeRF overview: Triplane-enhanced representation and adaptive density blending</h3>
+          <h3 class="subtitle mt-4">Cloth-HUGS overview: TriPlane-encoded Gaussians, physics-aware cloth, and depth-aware 3DGS rendering</h3>
         </div>
       </div>
     </div>
@@ -384,122 +397,162 @@
           <h2 class="title is-3">Quantitative Results</h2>
           <div class="content has-text-justified">
             <p>
-              Quantitative comparison of individual subjects from the ZJU-MoCap dataset. LPIPS* = LPIPS &times; 10<sup>3</sup>. The best metric values are highlighted in green and the second-best in orange.
+              Quantitative comparison of individual subjects from the NeuMan dataset. LPIPS* = LPIPS &times; 10<sup>3</sup>. The best metric values are highlighted in green and the second-best in orange.
             </p>
           </div>
           <div class="table-container">
+            <!-- Table 1: Full-frame comparison -->
             <table class="table is-fullwidth is-striped is-bordered is-hoverable">
+              <caption><strong>Table 1.</strong> Comparison of Cloth-HUGS with prior work on NeuMan test images for both human and scene regions using PSNR↑, SSIM↑, and LPIPS↓. Higher is better for PSNR and SSIM. Lower is better for LPIPS.</caption>
               <thead>
                 <tr>
                   <th rowspan="2">Method</th>
-                  <th colspan="3">Subject 377</th>
-                  <th colspan="3">Subject 386</th>
-                  <th colspan="3">Subject 387</th>
+                  <th colspan="3">Seattle</th>
+                  <th colspan="3">Citron</th>
+                  <th colspan="3">Parking</th>
+                  <th colspan="3">Bike</th>
+                  <th colspan="3">Jogging</th>
+                  <th colspan="3">Lab</th>
+                  <th colspan="3">Average</th>
                 </tr>
                 <tr>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Neural Body</td>
-                  <td>29.11</td>
-                  <td style="background:#ffe6cc">0.9674</td>
-                  <td>40.95</td>
-                  <td>30.54</td>
-                  <td style="background:#ffe6cc">0.9678</td>
-                  <td>46.43</td>
-                  <td>27.00</td>
-                  <td>0.9518</td>
-                  <td>59.47</td>
+                  <td>NeRF-T</td>
+                  <td>21.84</td><td>0.69</td><td>0.37</td>
+                  <td>12.33</td><td>0.49</td><td>0.65</td>
+                  <td>21.98</td><td>0.69</td><td>0.46</td>
+                  <td>21.16</td><td>0.71</td><td>0.36</td>
+                  <td>20.63</td><td>0.53</td><td>0.49</td>
+                  <td>20.52</td><td>0.75</td><td>0.39</td>
+                  <td>19.743</td><td>0.643</td><td>0.453</td>
                 </tr>
                 <tr>
-                  <td>HumanNeRF</td>
-                  <td style="background:#d7f3d7">30.41</td>
-                  <td style="background:#d7f3d7">0.9743</td>
-                  <td style="background:#d7f3d7">24.06</td>
-                  <td style="background:#d7f3d7">33.20</td>
-                  <td style="background:#d7f3d7">0.9752</td>
-                  <td style="background:#d7f3d7">28.99</td>
-                  <td style="background:#d7f3d7">28.18</td>
-                  <td style="background:#d7f3d7">0.9632</td>
-                  <td style="background:#d7f3d7">35.58</td>
+                  <td>HyperNeRF</td>
+                  <td>16.43</td><td>0.43</td><td>0.40</td>
+                  <td>16.81</td><td>0.41</td><td>0.56</td>
+                  <td>16.04</td><td>0.38</td><td>0.62</td>
+                  <td>17.64</td><td>0.42</td><td>0.43</td>
+                  <td>18.52</td><td>0.39</td><td>0.52</td>
+                  <td>16.75</td><td>0.51</td><td>0.23</td>
+                  <td>17.032</td><td>0.423</td><td>0.460</td>
                 </tr>
                 <tr>
-                  <td><strong>TE-NeRF</strong></td>
-                  <td style="background:#ffe6cc">29.79</td>
-                  <td>0.9656</td>
-                  <td style="background:#ffe6cc">29.41</td>
-                  <td style="background:#ffe6cc">32.73</td>
-                  <td>0.9605</td>
-                  <td style="background:#ffe6cc">36.30</td>
-                  <td style="background:#ffe6cc">27.86</td>
-                  <td style="background:#ffe6cc">0.9596</td>
-                  <td style="background:#ffe6cc">39.87</td>
+                  <td>Vid2Avatar</td>
+                  <td>17.41</td><td>0.56</td><td>0.60</td>
+                  <td>14.32</td><td>0.62</td><td>0.65</td>
+                  <td>21.56</td><td>0.69</td><td>0.50</td>
+                  <td>14.86</td><td>0.51</td><td>0.69</td>
+                  <td>15.04</td><td>0.41</td><td>0.70</td>
+                  <td>13.96</td><td>0.60</td><td>0.68</td>
+                  <td>16.192</td><td>0.565</td><td>0.637</td>
                 </tr>
                 <tr>
-                  <td colspan="10">&nbsp;</td>
+                  <td>NeuMan</td>
+                  <td>23.99</td><td>0.78</td><td>0.26</td>
+                  <td>24.63</td><td>0.81</td><td>0.26</td>
+                  <td>25.43</td><td>0.80</td><td>0.31</td>
+                  <td>25.55</td><td>0.83</td><td>0.23</td>
+                  <td>22.70</td><td>0.68</td><td>0.32</td>
+                  <td>24.96</td><td>0.86</td><td>0.21</td>
+                  <td>24.543</td><td>0.793</td><td>0.265</td>
                 </tr>
+                <tr>
+                  <td>HUGS</td>
+                  <td>25.94</td><td>0.85</td><td>0.13</td>
+                  <td>25.54</td><td>0.86</td><td>0.15</td>
+                  <td>26.86</td><td>0.85</td><td>0.22</td>
+                  <td>25.46</td><td>0.84</td><td>0.13</td>
+                  <td>23.75</td><td>0.78</td><td>0.22</td>
+                  <td>26.00</td><td>0.92</td><td>0.09</td>
+                  <td>25.592</td><td>0.850</td><td>0.157</td>
+                </tr>
+                <tr>
+                  <td><strong>Ours</strong></td>
+                  <td>26.15</td><td>0.85</td><td>0.10</td>
+                  <td>25.78</td><td>0.86</td><td>0.09</td>
+                  <td>26.78</td><td>0.84</td><td>0.14</td>
+                  <td>25.56</td><td>0.85</td><td>0.10</td>
+                  <td>23.57</td><td>0.76</td><td>0.18</td>
+                  <td>26.14</td><td>0.92</td><td>0.07</td>
+                  <td>25.663</td><td>0.847</td><td>0.113</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Table 2: Human-only cropped regions -->
+            <table class="table is-fullwidth is-striped is-bordered is-hoverable" style="margin-top:1.5rem;">
+              <caption><strong>Table 2.</strong> Comparison of Cloth-HUGS with prior work on the NeuMan dataset over human-only cropped regions, using PSNR↑, SSIM↑, and LPIPS↓. Higher is better for PSNR and SSIM. Lower is better for LPIPS.</caption>
+              <thead>
                 <tr>
                   <th rowspan="2">Method</th>
-                  <th colspan="3">Subject 392</th>
-                  <th colspan="3">Subject 393</th>
-                  <th colspan="3">Subject 394</th>
+                  <th colspan="3">Seattle</th>
+                  <th colspan="3">Citron</th>
+                  <th colspan="3">Parking</th>
+                  <th colspan="3">Bike</th>
+                  <th colspan="3">Jogging</th>
+                  <th colspan="3">Lab</th>
+                  <th colspan="3">Average</th>
                 </tr>
                 <tr>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
-                  <th>PSNR ↑</th>
-                  <th>SSIM ↑</th>
-                  <th>LPIPS* ↓</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                  <th>PSNR</th><th>SSIM</th><th>LPIPS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vid2Avatar</td>
+                  <td>16.90</td><td>0.51</td><td>0.27</td>
+                  <td>15.96</td><td>0.59</td><td>0.28</td>
+                  <td>18.51</td><td>0.65</td><td>0.26</td>
+                  <td>12.44</td><td>0.39</td><td>0.54</td>
+                  <td>16.36</td><td>0.46</td><td>0.30</td>
+                  <td>15.99</td><td>0.62</td><td>0.34</td>
+                  <td>16.027</td><td>0.537</td><td>0.331</td>
                 </tr>
                 <tr>
-                  <td>Neural Body</td>
-                  <td>30.10</td>
-                  <td style="background:#ffe6cc">0.9642</td>
-                  <td>53.27</td>
-                  <td style="background:#ffe6cc">28.61</td>
-                  <td style="background:#ffe6cc">0.9590</td>
-                  <td style="background:#ffe6cc">59.05</td>
-                  <td>29.10</td>
-                  <td style="background:#ffe6cc">0.9593</td>
-                  <td>54.55</td>
+                  <td>NeuMan</td>
+                  <td>18.42</td><td>0.58</td><td>0.20</td>
+                  <td>18.39</td><td>0.64</td><td>0.19</td>
+                  <td>17.66</td><td>0.66</td><td>0.24</td>
+                  <td>19.05</td><td>0.66</td><td>0.21</td>
+                  <td>17.57</td><td>0.54</td><td>0.29</td>
+                  <td>18.76</td><td>0.73</td><td>0.23</td>
+                  <td>18.308</td><td>0.635</td><td>0.227</td>
                 </tr>
                 <tr>
-                  <td>HumanNeRF</td>
-                  <td style="background:#d7f3d7">31.04</td>
-                  <td style="background:#d7f3d7">0.9705</td>
-                  <td style="background:#d7f3d7">32.12</td>
-                  <td style="background:#d7f3d7">28.31</td>
-                  <td style="background:#d7f3d7">0.9603</td>
-                  <td style="background:#d7f3d7">36.72</td>
-                  <td style="background:#d7f3d7">30.31</td>
-                  <td style="background:#d7f3d7">0.9642</td>
-                  <td style="background:#d7f3d7">32.89</td>
+                  <td>HUGS</td>
+                  <td>19.06</td><td>0.67</td><td>0.15</td>
+                  <td>19.16</td><td>0.71</td><td>0.16</td>
+                  <td>19.44</td><td>0.73</td><td>0.17</td>
+                  <td>19.48</td><td>0.67</td><td>0.18</td>
+                  <td>17.45</td><td>0.59</td><td>0.27</td>
+                  <td>18.79</td><td>0.76</td><td>0.18</td>
+                  <td>18.897</td><td>0.688</td><td>0.185</td>
                 </tr>
                 <tr>
-                  <td><strong>TE-NeRF</strong></td>
-                  <td style="background:#ffe6cc">30.23</td>
-                  <td>0.9540</td>
-                  <td style="background:#ffe6cc">41.54</td>
-                  <td>26.66</td>
-                  <td>0.9284</td>
-                  <td>65.16</td>
-                  <td style="background:#ffe6cc">29.68</td>
-                  <td>0.9476</td>
-                  <td style="background:#ffe6cc">41.22</td>
+                  <td><strong>Ours</strong></td>
+                  <td>18.68</td><td>0.65</td><td>0.14</td>
+                  <td>19.12</td><td>0.70</td><td>0.13</td>
+                  <td>19.32</td><td>0.71</td><td>0.15</td>
+                  <td>19.48</td><td>0.66</td><td>0.15</td>
+                  <td>17.22</td><td>0.57</td><td>0.24</td>
+                  <td>19.05</td><td>0.76</td><td>0.15</td>
+                  <td>18.812</td><td>0.675</td><td>0.160</td>
                 </tr>
               </tbody>
             </table>
@@ -522,13 +575,13 @@
           <h2 class="title is-3">Qualitative Results</h2>
           <div class="content has-text-justified">
             <p>
-              Qualitative comparisons illustrate TE-NeRF's improvements in reducing rendering artifacts while maintaining coherent surface geometry. The image below shows representative results: our Triplane-anchored density blending suppresses spurious background artifacts and improves silhouette alignment, particularly around clothing edges and facial contours. There is a small trade-off in cloth-detail sharpness in some cases, but overall visual coherence and artifact reduction are markedly improved. Refer to the figure for side-by-side examples and annotations.
+              Across subjects, poses, and apparel, Cloth-HUGS produces sharper facial details, cleaner body–cloth boundaries, and more accurate cloth geometry. In the first row, Cloth-HUGS preserves finer wrinkles near the T‑shirt hem, whereas HUGS appears smoother and NeuMan exhibits pose-related artifacts. In the second row, Cloth-HUGS resolves hand–shirt separation and occlusions while HUGS blends regions and NeuMan misplaces the arm; Cloth-HUGS also preserves clearer pant‑level wrinkle cues. Overall, Cloth-HUGS achieves the strongest perceptual fidelity and geometric coherence, enabled by explicit body–cloth separation and physics‑guided regularization. Refer to the figure for side‑by‑side comparisons and annotations.
             </p>
           </div>
           <figure class="image">
             <img src="static/images/qualitative-results.png" alt="Qualitative comparison results" loading="lazy"/>
           </figure>
-          <h3 class="subtitle mt-4">Qualitative comparison: artifact reduction and silhouette alignment</h3>
+          <h3 class="subtitle mt-4">Qualitative comparison: Cloth-HUGS vs HUGS and NeuMan</h3>
         </div>
       </div>
     </div>
@@ -571,18 +624,18 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
+      <h2 class="title">Poster</h2>-->
 
       <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdf/TE-NeRF_Poster.pdf" width="100%" height="550">
+      <!--<iframe  src="static/pdf/TE-NeRF_Poster.pdf" width="100%" height="550">
           </iframe>
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -597,12 +650,12 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@inproceedings{mubashshira2025tenerf,
-  title={TE-NeRF: Triplane-Enhanced Neural Radiance Field for Artifact-Free Human Rendering},
-  author={Mubashshira, Sadia and Desai, Kevin},
-  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) Workshops},
-  year={2025}
-}</code></pre>
+      <pre id="bibtex-code"><code>@misc{mubashshira2026clothhugs,
+        title={CLOTH-HUGS: Cloth Aware Human Gaussian Splatting},
+        author={Mubashshira, Sadia and Amini, Nazanin and Desai, Kevin},
+        note={Under review at ICIP 2026},
+        year={2026}
+      }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
@@ -634,6 +687,88 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+
+  <script>
+  // Highlight quantitative table cells: best (green) and second (orange).
+  document.addEventListener('DOMContentLoaded', function () {
+    function colorTable(table) {
+      // map column index -> metric type ('psnr','ssim','lpips')
+      const thead = table.querySelector('thead');
+      if (!thead) return;
+      const headerRows = thead.querySelectorAll('tr');
+      if (headerRows.length < 2) return;
+      const metricRow = headerRows[1];
+      const metricCells = Array.from(metricRow.querySelectorAll('th'));
+
+      // Build metric type array aligned with table columns
+      const colMetric = [];
+      // first header cell is 'Method'
+      // so start from index 1
+      for (let i = 1; i < metricCells.length + 1; ++i) {
+        const text = metricCells[i-1].textContent.trim().toLowerCase();
+        if (text.startsWith('psnr')) colMetric.push('psnr');
+        else if (text.startsWith('ssim')) colMetric.push('ssim');
+        else if (text.startsWith('lpips')) colMetric.push('lpips');
+        else colMetric.push(null);
+      }
+
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      // mark the 'Ours' row with class quant-ours based on first cell containing 'Ours' or 'Ours' strong
+      let oursRow = null;
+      rows.forEach(r => {
+        const first = r.querySelector('td');
+        if (!first) return;
+        const txt = first.textContent.trim().toLowerCase();
+        if (txt === 'ours' || txt.includes('ours')) {
+          r.classList.add('quant-ours');
+          oursRow = r;
+        }
+      });
+
+      // For each metric column index, collect numeric values per row
+      for (let col = 1; col <= colMetric.length; ++col) {
+        const metric = colMetric[col-1];
+        if (!metric) continue;
+        const values = [];
+        rows.forEach((r, rIdx) => {
+          const cells = r.querySelectorAll('td');
+          if (cells.length <= col) return; // skip
+          const cell = cells[col];
+          const txt = cell.textContent.replace(/,/g,'').trim();
+          const num = parseFloat(txt);
+          if (!isNaN(num)) values.push({num, cell, rIdx});
+        });
+        if (values.length === 0) continue;
+
+        // sort depending on metric (psnr/ssim higher is better, lpips lower is better)
+        const sorted = values.slice().sort((a,b) => {
+          if (metric === 'lpips') return a.num - b.num; // lower better
+          return b.num - a.num; // higher better
+        });
+
+  // best -> first, second -> second, third -> third
+  const best = sorted[0];
+  const second = sorted[1];
+  const third = sorted[2];
+  if (best && best.cell) best.cell.classList.add('quant-best');
+  if (second && second.cell) second.cell.classList.add('quant-second');
+  if (third && third.cell) third.cell.classList.add('quant-third');
+      }
+    }
+
+    // Find quantitative tables by caption text
+    const tables = Array.from(document.querySelectorAll('table.table'));
+    tables.forEach(t => {
+      const cap = t.querySelector('caption');
+      if (cap && (cap.textContent.trim().startsWith('Table 1') || cap.textContent.trim().startsWith('Table 2'))) {
+        colorTable(t);
+      }
+    });
+  });
+  </script>
 
   </body>
   </html>
